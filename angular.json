@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "chess"
+  "defaultProject": "chess",
+  "cli": {
+    "analytics": "49e65433-141c-4be4-9d9f-b876d984cd23"
+  }
 }
