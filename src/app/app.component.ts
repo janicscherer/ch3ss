@@ -62,6 +62,8 @@ export class AppComponent {
   endX = -1;
   endY = -1;
 
+  getFigureAt = (startX, startY) => this.board[startY].cells[startX].figure;
+
   // validations
   isFigureAtStart = () => this.board[this.startY].cells[this.startX].figure instanceof Figure;
   isFigureAtEnd = () => this.board[this.endY].cells[this.endX].figure instanceof Figure;
@@ -105,8 +107,10 @@ export class AppComponent {
     if (this.isFigureAtStart()) {
       if (this.isNotSameCell()) {
         if (!this.isFigureAtEnd()) {
-          this.moveFigure();
-          this.deleteFigureAtStart();
+          if (this.checkStartMoveValidity()) {
+            this.moveFigure();
+            this.deleteFigureAtStart();
+          }
         }
       }
     }
